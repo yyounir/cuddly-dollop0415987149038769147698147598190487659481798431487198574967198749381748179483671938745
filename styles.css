@@ -677,6 +677,11 @@ p {
 	border-radius: 100px;
 }
 
+.image-as-smallicon {
+	height: 20px;
+
+}
+
 .image-as-squircle-icon {
 	height: 50px;
 	border-radius: 10px;
