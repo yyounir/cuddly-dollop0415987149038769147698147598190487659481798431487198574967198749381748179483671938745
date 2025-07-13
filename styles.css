@@ -456,7 +456,6 @@ p {
 	display: block;
 	font-size: 13pt;
 	font-style: bold;
-	text-align: left;
 }
 
 .action-button-tonal-card:hover {
@@ -1017,7 +1016,7 @@ p {
     text-align: left;
 	cursor: default;	
 	animation: zoomIn 0.2s ease-out forwards;
-	
+	overflow-y: auto; /* Enable vertical scrolling when content overflows */
 	/* transition: visibility 0.3s ease-out, opacity 0.3s ease-out, transform 0.1s ease-out;  */
 }
 
@@ -1234,6 +1233,8 @@ p {
 	padding-right: 22px;
 	padding-left:22px;
 	transition-duration: 0.4s;
+	padding-bottom: 8px;
+	padding-top: 8px;
 }
 
 
