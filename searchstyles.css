@@ -1,0 +1,257 @@
+ /* Custom styles for the Inter font and basic body styling */
+body {
+    font-family: Arial, sans-serif; /* Using a common system font */
+    background-color: #f0f2f5; /* Light gray background */
+    display: flex;
+    flex-direction: column; /* Arrange children vertically */
+    min-height: 100vh; /* Ensure body takes full viewport height */
+    margin: 0;
+    padding: 20px; /* Add some padding for smaller screens */
+    padding-bottom: 120px; /* Space for the fixed search bar at the bottom */
+    box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+/* Style rules for body and images */
+body {
+	background-color: #f4f2ff;
+	font-family: "nunito";
+}
+
+h1 {
+	font-family: "nunito";
+	color: #14007f;
+}
+
+h2 {
+	color: #14007f;
+}
+
+h4 {
+	text-decoration: none;
+}
+
+header{
+	overflow: hidden;
+	width: 100%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-right: 20px;
+	float: center;
+	background-color: #f4f2ff;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	z-index: 99;
+   	top: 0;
+}
+
+header a {
+	float: left;
+	color: #14007f;
+	text-align: left;
+	padding-top: 3px;
+	padding-right: 10px;
+	padding-bottom: 2px;
+	padding-left: 5px;	
+	text-decoration: none;
+	font-size: 18pt;	
+	border-radius: 4px;
+	font-family: nunito-extra-light;
+}
+
+header img {
+	width: 100%;
+}
+
+img {
+	max-width: 300px;
+	display: block;
+	float: center;
+}
+
+main {
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-bottom: 25px;
+	animation: fadeIn .5s;
+}
+
+li {
+	font-size: 1.1rem;
+	color: #14007F;
+}
+
+p {
+	color: #14007f;
+	font-family: "nunito";
+	font-size: 14pt;
+}
+
+.main-content {
+    flex-grow: 1; /* Allows main content to take up available space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 0px; /* Add some space above the fixed search bar */
+    font-family: Nunito;
+}
+
+.main-content h1 {
+    font-size: 36px;
+    color: #14007f;
+}
+
+.main-content-image {
+    flex-grow: 1; /* Allows main content to take up available space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 0px; /* Add some space above the fixed search bar */
+    font-family: Nunito;
+    width: 50%;
+}
+
+.search-bar-fixed-wrapper {
+    position: fixed; /* Make the wrapper sticky at the bottom */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 20px; /* Padding inside the fixed bar */
+    box-sizing: border-box; /* Include padding in width */
+    z-index: 1000; /* Ensure it stays on top of other content */
+    font-family: Nunito;
+}
+
+.container {
+    width: 100%;
+    max-width: 480px; /* Equivalent to max-w-md */
+    margin: 0 auto; /* Center the search container within the fixed wrapper */
+    background-color: #ffffff; /* White background */
+    padding: 24px; /* Equivalent to p-6 */
+    border-radius: 100px; /* Equivalent to rounded-lg */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Equivalent to shadow-xl */
+    border: 1px solid #e2e8f0; /* Equivalent to border border-gray-200 */
+    font-family: Nunito;
+}
+/* Remove background and shadow for the inner container when it's inside the fixed wrapper */
+.search-bar-fixed-wrapper .container {
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    padding: 0; /* Remove padding as it's handled by the wrapper */
+    font-family: Nunito;
+}
+
+
+.title {
+    font-size: 30px; /* Equivalent to text-3xl */
+    font-weight: bold; /* Equivalent to font-bold */
+    text-align: center; /* Equivalent to text-center */
+    color: #1a202c; /* Equivalent to text-gray-800 */
+    margin-bottom: 24px; /* Equivalent to mb-6 */
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.search-input { /* THE ACTUAL SEARCH BARRRR */
+    width: 100%;
+    padding: 12px 20px; /* Equivalent to px-5 py-3 */
+    border: 1px solid #e8e5f8; /* Equivalent to border border-gray-300 */
+    border-radius: 100px; /* Equivalent to rounded-lg */
+    outline: none; /* Remove default outline */
+    font-size: 18px; /* Equivalent to text-lg */
+    color: #14007f; /* Equivalent to text-gray-700 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-family: Nunito;
+    transition-duration: 0.4s;
+    margin-bottom: 50px;
+    background-color:white;
+}
+
+.search-input:hover {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.search-input:focus {
+    border-color: #2900ff; /* Equivalent to focus:border-blue-500 */
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); /* Equivalent to focus:ring-2 focus:ring-blue-500 */
+    padding-bottom: 15px;
+    padding-top: 15px;
+    transition-duration: 0.4s;
+}
+
+.suggestions-container {
+    position: absolute;
+    bottom: 100%; /* Position above the search input */
+    left: 0;
+    width: 100%;
+    margin-bottom: 4px; /* Small gap between input and suggestions */
+    border: 1px solid #cbd5e0;
+    border-bottom: none; /* No border at the bottom */
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+    flex-direction: column-reverse; /* Display suggestions from bottom up */
+
+    z-index: 10;           
+
+    background-color: #D1CEFF;
+    border-radius: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.10);
+    padding: 10px;
+    text-align: left;
+}
+
+.suggestions-container.show {
+    display: flex; /* Use flex to control order */
+}
+
+.suggestion-item {
+    padding: 12px 16px; /* Equivalent to 0.75rem 1rem */
+    cursor: pointer;
+    border-radius: 100px; /* Equivalent to rounded-md */            
+    color: #14007f;
+    font-family: "nunito";
+    display: block;
+    animation: fadeIn .15s;
+    transition-duration: 0.4s;
+}
+
+.suggestion-item:hover {
+    background-color: #a999ff;
+    border-radius: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    animation: fadeIn .45s;
+    font-weight: bold;
+}
+
+.search-results {
+    margin-top: 32px;
+    padding: 16px;
+    background-color: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 8px;
+    color: #1e40af;
+    text-align: center;
+    font-size: 18px;
+    display: none;
+}
+
+.search-results.show {
+    display: block;
+}
+
+.search-term {
+    font-weight: bold;
+}
+
+header img {
+	width: 100%;
+}
