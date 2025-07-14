@@ -51,10 +51,6 @@
             position: relative;
         }
 
-        
-
-        
-
         .search-button {
             margin-top: 24px; /* mt-6 */
             width: 100%;
@@ -118,7 +114,9 @@
                 placeholder="Search something..."
                 class="gsearch-input"
                 autocomplete="off"
-            ><button id="gsearch-button" class="saction-button-tonal" style="border: none; font-weight: bold; align-content: center; margin-top: 5px; padding-top: 14px; padding-bottom: 14px;"><i class="fa-solid fa-magnifying-glass"></i></button>
+            >
+            <button id="gsearch-button" class="action-button-tonal-i" style="border: none; font-weight: bold; align-content: center; margin-top: 5px; padding-top: 14px; padding-bottom: 14px;"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button id="googlesearch-button" class="action-button-unfilled-i" style="border: none; font-weight: bold; align-content: center; margin-top: 5px; padding-top: 14px; padding-bottom: 14px;"><i class="fa-brands fa-google"></i></button>
             <div
                 id="gsearch-suggestions-container"
                 class="gsuggestions-container"
@@ -577,6 +575,7 @@
         const gsearchInput = document.getElementById('gsearch-input');
         const gsuggestionsContainer = document.getElementById('gsuggestions-container');
         const gsearchButton = document.getElementById('gsearch-button');
+        const googlesearchButton = document.getElementById('googlesearch-button');
 
         let debounceTimeout;
 
@@ -654,6 +653,13 @@
             }
         }
 
+        function performGoogleSearch(query) {
+            if (query) {
+                window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_blank');
+                // window.open(`https://www.bing.com/search?q=${encodeURIComponent(query)}`, '_blank');
+            }
+        }
+
         // Event listener for input changes (with debouncing)
         gsearchInput.addEventListener('input', (event) => {
             clearTimeout(debounceTimeout);
@@ -666,6 +672,12 @@
         // Event listener for search button click
         gsearchButton.addEventListener('click', () => {
             performSearch(gsearchInput.value);
+            gsuggestionsContainer.style.display = 'none'; // Use style.display for plain CSS 'hidden'
+        });
+
+        // Event listener for search button click
+        googlesearchButton.addEventListener('click', () => {
+            performGoogleSearch(gsearchInput.value);
             gsuggestionsContainer.style.display = 'none'; // Use style.display for plain CSS 'hidden'
         });
 

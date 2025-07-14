@@ -397,6 +397,38 @@ p {
 	padding-left:16px;
 }
 
+.action-button-unfilled-i {
+	padding: 13px;
+	background-color:#f4f2ff;
+	border-color: #14007F;
+	margin: auto;
+	width: auto;
+	text-align: center;
+	border-radius: 100px;
+	float: none;
+	color: #14007F;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	font-family: nunito;
+	text-decoration: none;
+	font-size: 13pt;
+}
+
+.action-button-unfilled-i a {
+	text-decoration: none;
+	color: #14007F;
+	transition-duration: 0.4s;
+	display: block;
+	font-size: 13pt;
+	font-style: bold;
+}
+
+.action-button-unfilled-i:hover {
+	background-color: #A999FF;
+	padding-right: 16px;
+	padding-left:16px;
+}
+
 .action-button-tonal-m {
 	padding: 13px;
 	background-color:#e8e5f8;
