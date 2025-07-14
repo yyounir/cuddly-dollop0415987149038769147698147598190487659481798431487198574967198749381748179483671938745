@@ -1,6 +1,5 @@
  /* Custom styles for the Inter font and basic body styling */
 body {
-    font-family: Arial, sans-serif; /* Using a common system font */
     background-color: #f0f2f5; /* Light gray background */
     display: flex;
     flex-direction: column; /* Arrange children vertically */
@@ -255,3 +254,43 @@ p {
 header img {
 	width: 100%;
 }
+
+.gemini-response-container {
+            padding: 20px;
+            background-color: white; /* Light blue background */
+            border: 1px solid #e2e8f0; /* Blue border */
+            
+            border-radius: 30px;
+            border-bottom-left-radius: 5px;
+            margin-bottom: 5px;
+
+            margin-top: 30px; /* Space from the top content */
+            width: 100%;
+            max-width: 600px; /* Max width for readability */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            color: #14007f; /* Dark blue text */
+            min-height: 100px; /* Minimum height for the response area */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.1em;
+            line-height: 1.6;
+            overflow-wrap: break-word; /* Ensure long words break */
+            word-wrap: break-word; /* For older browsers */
+            white-space: pre-wrap; /* Preserve whitespace and line breaks */
+        }
+
+        .loading-spinner {
+            border: 4px solid #1b09ff; /* Light grey */
+            border-top: 4px solid #f3f3f3; /* Blue */
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
