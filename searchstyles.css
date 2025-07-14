@@ -160,7 +160,6 @@ p {
 .search-input { /* THE ACTUAL SEARCH BARRRR */
     width: 100%;
     padding: 12px 20px; /* Equivalent to px-5 py-3 */
-
     border: 1px solid #e8e5f8; /* Equivalent to border border-gray-300 */
     border-radius: 100px; /* Equivalent to rounded-lg */
     border-bottom-right-radius: 50px;
@@ -180,6 +179,73 @@ p {
 }
 
 .search-input:focus {
+    border-color: #2900ff; /* Equivalent to focus:border-blue-500 */
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); /* Equivalent to focus:ring-2 focus:ring-blue-500 */
+    padding-bottom: 15px;
+    padding-top: 15px;
+    transition-duration: 0.4s;
+}
+
+.saction-button-tonal {
+	padding: 13px;
+	/* background-color:#e8e5f8; */
+    background-color: #f4f2ff; 
+	border-color: #14007F;
+	margin: auto;
+	width: auto;
+	text-align: center;
+	border-radius: 100px;
+	float: none;
+	color: #14007F;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	font-family: nunito;
+	text-decoration: none;
+	font-size: 13pt;
+}
+
+.saction-button-tonal a {
+	text-decoration: none;
+	color: #14007F;
+	transition-duration: 0.4s;
+	display: block;
+	font-size: 13pt;
+	font-style: bold;
+}
+
+.saction-button-tonal:hover {
+	background-color: #A999FF;
+	padding-right: 16px;
+	padding-left:16px;
+    padding-top: 16px;
+	padding-bottom:16px;
+}
+
+.gsearch-input { /* THE ACTUAL GOOGLE SEARCH BARRRR */
+    width: 50%;
+    /* padding: 12px 20px; Equivalent to px-5 py-3 */
+    padding-left: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border: 1px solid #e8e5f8; /* Equivalent to border border-gray-300 */
+    border-radius: 100px; /* Equivalent to rounded-lg */
+    outline: none; /* Remove default outline */
+    font-size: 18px; /* Equivalent to text-lg */
+    color: #14007f; /* Equivalent to text-gray-700 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-family: Nunito;
+    transition-duration: 0.4s;
+    background-color: #f4f2ff;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.gsearch-input:hover {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.gsearch-input:focus {
     border-color: #2900ff; /* Equivalent to focus:border-blue-500 */
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); /* Equivalent to focus:ring-2 focus:ring-blue-500 */
     padding-bottom: 15px;

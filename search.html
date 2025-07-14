@@ -28,6 +28,52 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <meta name="robots" content="noindex">
+
+    <style>
+        .container {
+            width: 100%;
+            max-width: 480px; /* max-w-md */
+            background-color: #ffffff; /* bg-white */
+            border-radius: 12px; /* rounded-xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+            padding: 24px; /* p-6 */
+        }
+
+        .title {
+            font-size: 2rem; /* text-2xl */
+            font-weight: 700; /* font-bold */
+            text-align: center;
+            color: #1f2937; /* text-gray-800 */
+            margin-bottom: 24px; /* mb-6 */
+        }
+
+        .search-wrapper {
+            position: relative;
+        }
+
+        
+
+        
+
+        .search-button {
+            margin-top: 24px; /* mt-6 */
+            width: 100%;
+            background-color: #2563eb; /* bg-blue-600 */
+            color: #ffffff; /* text-white */
+            font-weight: 600; /* font-semibold */
+            padding: 12px 0; /* py-3 */
+            border-radius: 9999px; /* rounded-full */
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; /* transition duration-300 ease-in-out */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+            border: none;
+            cursor: pointer;
+        }
+
+        .search-button:hover {
+            background-color: #1d4ed8; /* hover:bg-blue-700 */
+            transform: scale(1.05); /* hover:scale-105 */
+        }
+    </style>
 </head>
 <body>
     <header  class = "sticky-header">          
@@ -65,7 +111,21 @@
             <img src="Genes.png" class="image-short">
         </div>
 
-        
+        <center><div class="search-wrapper">
+            <input
+                type="text"
+                id="gsearch-input"
+                placeholder="Search something..."
+                class="gsearch-input"
+                autocomplete="off"
+            ><button id="gsearch-button" class="saction-button-tonal" style="border: none; font-weight: bold; align-content: center; margin-top: 5px; padding-top: 14px; padding-bottom: 14px;"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <div
+                id="gsearch-suggestions-container"
+                class="gsuggestions-container"
+            >
+            </div>            
+        </div></center>
+
         <div id = "card-unfilled">
 			
 		<!-- <center><p class = "title2"><b>Quick Links</b></p></center> -->
@@ -84,14 +144,24 @@
                 <a href="http://home.cunyfirst.cuny.edu/" target="blank">CUNY First</a>
             </center>
             </div>
-
+            <div class="app-card">
+                <center>
+                <a href="https://degreeworks.cuny.edu/" target="blank"><img src="cuny.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://degreeworks.cuny.edu/" target="blank">CUNY DegreeWorks</a>
+            </center>
+            </div>
             <div class="app-card">
                 <center>
                 <a href="https://sb.cunyfirst.cuny.edu/criteria.jsp" target="blank"><img src="cuny.png" class="image-as-circle-icon" alt = "icon"></a>
                 <a href="https://sb.cunyfirst.cuny.edu/criteria.jsp" target="blank">Schedule Builder</a>
             </center>
             </div>
-
+            <div class="app-card">
+                <center>
+                <a href="https://lehman360.lehman.edu/" target="blank"><img src="lc.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://lehman360.lehman.edu/" target="blank">Lehman 360</a>
+            </center>
+            </div>
             <div class="app-card">
                 <center>
                 <a href="https://lehman-undergraduate.catalog.cuny.edu/courses?sortBy=code" target="blank"><img src="lc.png" class="image-as-circle-icon" alt = "icon"></a>
@@ -100,23 +170,8 @@
             </div>
         </div></div>
 
-        <!-- <div class="input-wrapper">
-                <input
-                    type="text"
-                    id="searchInput"
-                    placeholder="Search something..."
-                    class="search-input"
-                    autocomplete="off"
-                >
-                
-                <div
-                    id="suggestionsContainer"
-                    class="suggestions-container"
-                >
-                <a class = "action-button-filled" href = "https://yyounir.github.io/pingpong//pingpong.html" c><b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;Open Link&nbsp;&nbsp;&nbsp;&nbsp;</b></a>
-                    
-                </div>
-            </div> -->
+
+        
 
         <center><p class = "title2"><b>Frequent</b></p></center>
         <div class="apps-container">
@@ -425,12 +480,12 @@
             document.getElementById('popup3').style.display = 'none';
         }
         // // Get references to the DOM elements
-        // const searchInput = document.getElementById('searchInput');
+        // const searchInputsearch = document.getElementById('searchInputsearch');
         // const suggestionsContainer = document.getElementById('suggestionsContainer');
         // // const searchResults = document.getElementById('searchResults'); // No longer directly used for display
         // // const searchTermSpan = document.getElementById('searchTerm'); // No longer directly used for display
 
-        // // Mock data for suggestions. In a real application, this would come from an API.
+        // Mock data for suggestions. In a real application, this would come from an API.
         // const allSuggestions = [
         //     'Apple', 'Banana', 'Cherry', 'Cats', 'Meow', 'Date', 'Elderberry',
         //     'Fig', 'Grape', 'Honeydew', 'Kiwi', 'Lemon', 'Kittens',
@@ -460,10 +515,10 @@
         //     ).slice(0, 8); // Limit to 8 suggestions for brevity
         // }
 
-        // /**
-        //  * Performs a Google search with the given term.
-        //  * @param {string} term The search term.
-        //  */
+        /**
+         * Performs a Google search with the given term.
+         * @param {string} term The search term.
+         */
         // function performGoogleSearch(term) {
         //     if (term.trim() !== '') {
         //         const googleSearchUrl = `https://www.bing.com/search?q=${encodeURIComponent(term)}`;
@@ -484,7 +539,7 @@
         //             suggestionItem.textContent = suggestion;
         //             // Add click listener to each suggestion item
         //             suggestionItem.addEventListener('click', () => {
-        //                 searchInput.value = suggestion; // Set search input value
+        //                 searchInputsearch.value = suggestion; // Set search input value
         //                 suggestionsContainer.classList.remove('show'); // Hide suggestions
         //                 performGoogleSearch(suggestion); // Perform Google search
         //             });
@@ -497,7 +552,7 @@
         // }
 
         // // Event listener for input changes in the search bar
-        // searchInput.addEventListener('input', (event) => {
+        // searchInputsearch.addEventListener('input', (event) => {
         //     const query = event.target.value.trim(); // Get current input value
         //     const filtered = filterSuggestions(query); // Filter suggestions
         //     displaySuggestions(filtered); // Display them
@@ -505,9 +560,9 @@
         // });
 
         // // Event listener for 'Enter' key press on the search input
-        // searchInput.addEventListener('keypress', (event) => {
+        // searchInputsearch.addEventListener('keypress', (event) => {
         //     if (event.key === 'Enter') {
-        //         const query = searchInput.value.trim();
+        //         const query = searchInputsearch.value.trim();
         //         performGoogleSearch(query); // Perform Google search
         //         suggestionsContainer.classList.remove('show'); // Hide suggestions after search
         //     }
@@ -515,10 +570,136 @@
 
         // // Event listener to hide suggestions when clicking outside the search area
         // document.addEventListener('click', (event) => {
-        //     if (!searchInput.contains(event.target) && !suggestionsContainer.contains(event.target)) {
+        //     if (!searchInputsearch.contains(event.target) && !suggestionsContainer.contains(event.target)) {
         //         suggestionsContainer.classList.remove('show');
         //     }
         // });
+        const gsearchInput = document.getElementById('gsearch-input');
+        const gsuggestionsContainer = document.getElementById('gsuggestions-container');
+        const gsearchButton = document.getElementById('gsearch-button');
+
+        let debounceTimeout;
+
+        // Function to fetch and display suggestions
+        async function fetchSuggestions(query) {
+            if (query.length < 2) { // Only fetch suggestions for queries with at least 2 characters
+                gsuggestionsContainer.innerHTML = '';
+                gsuggestionsContainer.style.display = 'none'; // Use style.display for plain CSS 'hidden'
+                return;
+            }
+
+            // In a real application, you would make an API call here.
+            // For this example, we'll use a simulated list of suggestions.
+            const allPossibleSuggestions = [
+                "how to make a website",
+                "how to make a search bar",
+                "how to make a good coffee",
+                "how to make a cake",
+                "best programming languages",
+                "best front-end frameworks",
+                "best back-end frameworks",
+                "weather today",
+                "news headlines",
+                "latest tech news",
+                "javascript tutorial",
+                "python tutorial",
+                "react tutorial",
+                "tailwind css tutorial",
+                "what is AI",
+                "what is machine learning",
+                "what is deep learning",
+                "what is quantum computing",
+                "history of the internet",
+                "famous landmarks",
+                "world capitals",
+                "healthy recipes",
+                "exercise routines",
+                "meditation benefits"
+            ];
+
+            const gsuggestions = allPossibleSuggestions.filter(s =>
+                s.toLowerCase().includes(query.toLowerCase())
+            ).slice(0, 8); // Limit to 8 suggestions
+
+            gdisplaySuggestions(suggestions);
+        }
+
+        // Function to display suggestions in the container
+        function gdisplaySuggestions(gsuggestions) {
+            gsuggestionsContainer.innerHTML = ''; // Clear previous suggestions
+            if (gsuggestions.length === 0) {
+                gsuggestionsContainer.style.display = 'none'; // Use style.display for plain CSS 'hidden'
+                return;
+            }
+
+            gsuggestions.forEach(suggestion => {
+                const suggestionItem = document.createElement('div');
+                suggestionItem.classList.add('suggestion-item'); // Use custom class
+                suggestionItem.textContent = suggestion;
+                suggestionItem.addEventListener('click', () => {
+                    gsearchInput.value = suggestion;
+                    performSearch(suggestion);
+                    gsuggestionsContainer.style.display = 'none'; // Use style.display for plain CSS 'hidden'
+                });
+                gsuggestionsContainer.appendChild(suggestionItem);
+            });
+            gsuggestionsContainer.style.display = 'block'; // Use style.display for plain CSS 'block'
+        }
+
+        // Function to perform a Google search
+        function performSearch(query) {
+            if (query) {
+                // window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_blank');
+                window.open(`https://www.bing.com/search?q=${encodeURIComponent(query)}`, '_blank');
+            }
+        }
+
+        // Event listener for input changes (with debouncing)
+        gsearchInput.addEventListener('input', (event) => {
+            clearTimeout(debounceTimeout);
+            const query = event.target.value;
+            debounceTimeout = setTimeout(() => {
+                fetchSuggestions(query);
+            }, 300); // Debounce for 300ms
+        });
+
+        // Event listener for search button click
+        gsearchButton.addEventListener('click', () => {
+            performSearch(gsearchInput.value);
+            gsuggestionsContainer.style.display = 'none'; // Use style.display for plain CSS 'hidden'
+        });
+
+        // Event listener for Enter key press on the input field
+        gsearchInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                performSearch(gsearchInput.value);
+                gsuggestionsContainer.style.display = 'none'; // Use style.display for plain CSS 'hidden'
+            }
+        });
+
+        // Hide suggestions when clicking outside the search bar or suggestions
+        document.addEventListener('click', (event) => {
+            if (!gsearchInput.contains(event.target) && !gsuggestionsContainer.contains(event.target)) {
+                gsuggestionsContainer.style.display = 'none'; // Use style.display for plain CSS 'hidden'
+            }
+        });
+
+        // Show suggestions again if input is focused and has text
+        gsearchInput.addEventListener('focus', () => {
+            if (gsearchInput.value.length >= 2 && gsuggestionsContainer.children.length > 0) {
+                gsuggestionsContainer.style.display = 'block'; // Use style.display for plain CSS 'block'
+            }
+        });
+
+
+
+
+
+
+
+
+
+
     
         // Get references to the DOM elements
         const searchInput = document.getElementById('searchInput');
