@@ -3,21 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search with Gemini AI Response</title>
+    <title>Search with Genes AI Response</title>
+    <link rel="stylesheet" href="searchstyles.css">
+    <link rel="stylesheet" href="styles.css">
     <style>
         /* Custom styles for the Inter font and basic body styling */
-        body {
-            font-family: Arial, sans-serif; /* Using a common system font */
-            background-color: #f0f2f5; /* Light gray background */
-            display: flex;
-            flex-direction: column; /* Arrange children vertically */
-            min-height: 100vh; /* Ensure body takes full viewport height */
-            margin: 0;
-            padding: 20px; /* Add some padding for smaller screens */
-            padding-bottom: 120px; /* Space for the fixed search bar at the bottom */
-            box-sizing: border-box; /* Include padding in element's total width and height */
-        }
-
+        
         .main-content {
             flex-grow: 1; /* Allows main content to take up available space */
             display: flex;
@@ -31,21 +22,34 @@
 
         .main-content h1 {
             font-size: 36px;
-            color: #333;
-            margin-bottom: 20px;
+            color: #14007f;
+        }
+
+        .main-content-image {
+            flex-grow: 1; /* Allows main content to take up available space */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-bottom: 0px; /* Add some space above the fixed search bar */
+            font-family: Nunito;
+            width: 50%;
         }
 
         .gemini-response-container {
-            background-color: #e0f2f7; /* Light blue background */
-            border: 1px solid #b3e5fc; /* Blue border */
-            border-radius: 8px;
             padding: 20px;
+            background-color: white; /* Light blue background */
+            border: 1px solid #e2e8f0; /* Blue border */
+            
+            border-radius: 30px;
+            border-bottom-left-radius: 5px;
+
             margin-top: 30px; /* Space from the top content */
             width: 100%;
             max-width: 600px; /* Max width for readability */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-align: left;
-            color: #01579b; /* Dark blue text */
+            color: #14007f; /* Dark blue text */
             min-height: 100px; /* Minimum height for the response area */
             display: flex;
             justify-content: center;
@@ -76,12 +80,11 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            background-color: #ffffff; /* White background for the bar */
-            box-shadow: 0 -5px 15px -3px rgba(0, 0, 0, 0.1); /* Shadow at the top */
             padding: 15px 20px; /* Padding inside the fixed bar */
             box-sizing: border-box; /* Include padding in width */
             z-index: 1000; /* Ensure it stays on top of other content */
-            border-top: 1px solid #e2e8f0; /* Light border at the top */
+            font-family: Nunito;
+            font-weight: 500;
         }
 
         .container {
@@ -90,9 +93,10 @@
             margin: 0 auto; /* Center the search container within the fixed wrapper */
             background-color: #ffffff; /* White background */
             padding: 24px; /* Equivalent to p-6 */
-            border-radius: 8px; /* Equivalent to rounded-lg */
+            border-radius: 100px; /* Equivalent to rounded-lg */
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Equivalent to shadow-xl */
-            border: 1px solid #e2e8f0; /* Equivalent to border border-gray-200 */
+            border: 1px solid #14007f; /* Equivalent to border border-gray-200 */
+            font-family: Nunito;
         }
         /* Remove background and shadow for the inner container when it's inside the fixed wrapper */
         .search-bar-fixed-wrapper .container {
@@ -100,6 +104,7 @@
             box-shadow: none;
             border: none;
             padding: 0; /* Remove padding as it's handled by the wrapper */
+            font-family: Nunito;
         }
 
 
@@ -115,22 +120,33 @@
             position: relative;
         }
 
-        .search-input {
+        .search-input { /*THE ACTUAL SEARCH BAR!!!!*/
             width: 100%;
             padding: 12px 20px; /* Equivalent to px-5 py-3 */
-            border: 1px solid #cbd5e0; /* Equivalent to border border-gray-300 */
-            border-radius: 8px; /* Equivalent to rounded-lg */
+            border: 1px solid #e8e5f8; /* Equivalent to border border-gray-300 */
+            border-radius: 100px; /* Equivalent to rounded-lg */
             outline: none; /* Remove default outline */
             font-size: 18px; /* Equivalent to text-lg */
-            color: #4a5568; /* Equivalent to text-gray-700 */
-            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* Equivalent to shadow-sm */
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            color: #14007f; /* Equivalent to text-gray-700 */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            font-family: Nunito;
+            transition-duration: 0.4s;
+            margin-bottom: 50px;
+            background-color:white;
+        }
+
+        .search-input:hover {
+            padding-top: 20px;
+            padding-bottom: 20px;
         }
 
         .search-input:focus {
-            border-color: #3b82f6; /* Equivalent to focus:border-blue-500 */
+            border-color: #2900ff; /* Equivalent to focus:border-blue-500 */
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); /* Equivalent to focus:ring-2 focus:ring-blue-500 */
-        }
+            padding-bottom: 15px;
+            padding-top: 15px;
+            transition-duration: 0.4s;
+        }        
 
         .suggestions-container {
             position: absolute;
@@ -198,19 +214,281 @@
             font-weight: bold;
         }
     </style>
+
+    <!-- FAVICON -->
+		<link rel="shortcut icon" href = "icon.png">
+		<link rel="icon" type="icon.png" sizes = "32x32" href = "iconSmall.png">
+		<link rel="aple-touch-icon" sizes = "180x180" href = "icon.png">
+		<link rel="icon" sizes = "192x192" href = "icon.png">
+
+        <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0" />
+
+    <!-- <script type="text/javascript" src="script.js"></script> -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="robots" content="noindex">
 </head>
 <body>
-    <div class="main-content">
-        <h1>Welcome to the AI Search Page!</h1>
-        <p>Type your query in the search bar below and get a response from Gemini.</p>
-        
-        <div id="geminiResponseContainer" class="gemini-response-container">
-            Type something to get an AI response!
-        </div>
+    <header  class = "sticky-header">        
+        <div class="header-right">
+				
+            <div class="dropdown" style="float:right;">
+                <a class="material-symbols-rounded">more_vert</a>
+                <div class="dropdown-content">
+                    <a onclick="openPopup()">&nbsp;&nbsp;About</a><br>		
+                    <a href="https://yyounir.github.io/yyportfolio/YY.html" target="blank">&nbsp;&nbsp;Portfolio</a><br>		
+                    <a href="www.linkedin.com/in/yasir-younus-91551a281" target="blank">&nbsp;&nbsp;View LinkedIn Profile&nbsp;&nbsp;</a><br>			
+                </div>
+            </div>
 
-        <!-- Add more content here to make the page scrollable -->
+        </div>
+    
+    </header>
+    <!-- <div class="main-content">
+        <h1>Welcome to the AI Search Page!</h1>
+        <p>Type your query in the search bar below and get a response from Genes!</p>
+        
+        <div id="geminiResponseContainer" class="gemini-response-container">Type something to get an AI response!</div>
+
+        
         <div style="height: 500px;"></div>
         <p>End of scrollable content.</p>
+    </div> -->
+
+    <div class="padding-body">
+        <div class="main-content">        
+            <h1>Hello there!<br>Nice to see you again!</h1>
+            <!-- <p>Scroll down to see the sticky search bar.</p> -->
+            <!-- Add more content here to make the page scrollable -->
+            <!-- <div style="height: 1000px;"></div>
+            <p>End of scrollable content.</p> -->
+        </div>
+        <div class="main-content">
+            <div id="geminiResponseContainer" class="gemini-response-container">Type something to get an AI response!</div>
+        </div>
+        <div class="main-content">
+            <img src="Genes.png" class="image-short">
+        </div>
+
+        
+        <div id = "card-unfilled">
+			
+		<!-- <center><p class = "title2"><b>Quick Links</b></p></center> -->
+        <div class="apps-container">
+            <!-- Card 5: Calculator -->
+            <div class="app-card">
+                <center>
+                <a href="https://brightspace.cuny.edu/d2l/home" target="blank"><img src="d2l.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://brightspace.cuny.edu/d2l/home" target="blank">CUNY Brightspace</a>
+            </center>
+            </div>
+
+            <div class="app-card">
+                <center>
+                <a href="http://home.cunyfirst.cuny.edu/" target="blank"><img src="cuny.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="http://home.cunyfirst.cuny.edu/" target="blank">CUNY First</a>
+            </center>
+            </div>
+
+            <div class="app-card">
+                <center>
+                <a href="https://sb.cunyfirst.cuny.edu/criteria.jsp" target="blank"><img src="cuny.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://sb.cunyfirst.cuny.edu/criteria.jsp" target="blank">Schedule Builder</a>
+            </center>
+            </div>
+
+            <div class="app-card">
+                <center>
+                <a href="https://lehman-undergraduate.catalog.cuny.edu/courses?sortBy=code" target="blank"><img src="lc.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://lehman-undergraduate.catalog.cuny.edu/courses?sortBy=code" target="blank">Course Catalog</a>
+            </center>
+            </div>
+        </div></div>
+
+        <center><p class = "title2"><b>Frequent</b></p></center>
+        <div class="apps-container">
+            <div class="app-card">
+                <center>
+                <a href="https://copilot.microsoft.com/" target="blank"><img src="Microsoft_Copilot.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://copilot.microsoft.com/" target="blank">Copilot</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://discord.com/" target="blank"><img src="discord-logo-1-1.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://discord.com/" target="blank">Discord</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://gemini.google.com/" target="blank"><img src="geminini.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://gemini.google.com/" target="blank">Gemini</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://mail.google.com/" target="blank"><img src="gmail.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://mail.google.com/" target="blank">Gmail</a>
+            </center>
+            </div>
+
+            <div class="app-card">
+                <center>
+                <a href="https://calendar.google.com/" target="blank"><img src="gcalendar.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://calendar.google.com/" target="blank">Google Calendar</a>
+            </center>
+            </div>
+
+            <div class="app-card">
+                <center>
+                <a href="https://drive.google.com/" target="blank"><img src="GoogleDrive.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://drive.google.com/" target="blank">Google Drive</a>
+            </center>
+            </div>             
+        </div>
+
+        <div class="apps-container">
+            <div class="app-card">
+                <center>
+                <a href="https://docs.google.com/" target="blank"><img src="gdocs.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://docs.google.com/" target="blank">Google Docs</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://maps.google.com/" target="blank"><img src="gmaps.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://maps.google.com/" target="blank">Google Maps</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://photos.google.com/" target="blank"><img src="gphotos.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://photos.google.com/" target="blank">Google Photos</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://play.google.com/" target="blank"><img src="gplay.jpg" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://play.google.com/" target="blank">Google Play</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://slides.google.com/" target="blank"><img src="gslides.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://slides.google.com/" target="blank">Google Slides</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://skillsbuild.org/" target="blank"><img src="ibmsb.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://skillsbuild.org/" target="blank">IBM SkillsBuild</a>
+            </center>
+            </div>
+            
+            
+        </div>
+
+        <div class="apps-container">
+            <div class="app-card">
+                <center>
+                <a href="https://onedrive.live.com/" target="blank"><img src="onedrive.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://onedrive.live.com/" target="blank">OneDrive</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://www.youtube.com" target="blank"><img src="yt.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://www.youtube.com" target="blank">YouTube</a>
+            </center>
+            </div>
+            <div class="app-card">
+                <center>
+                <a href="https://music.youtube.com" target="blank"><img src="ytmusic.png" class="image-as-circle-icon" alt = "icon"></a>
+                <a href="https://music.youtube.com" target="blank">YouTube Music</a>
+            </center>
+            </div>
+        </div>
+        
+
+        <br><br><br><center><p class = "title2"><b>Games & Stuff</b></p>
+        <div class="cards-container">
+            
+            <div class="card">
+                <center><h1 class = "title-2">Genshin Impact</h1></center>
+                <img src="genshin.jpg" class="image-on-half-card" alt = "Pic">
+                <p>Step into Teyvat, a vast world teeming with life and flowing with elemental energy.</p>
+
+                <p>You and your sibling arrived here from another world. 
+                    Separated by an unknown god, stripped of your powers, and cast into a deep slumber, you now awake to a world very different from when you first arrived.</p>
+
+                <p>Thus begins your journey across Teyvat to seek answers from The Seven — the gods of each element. 
+                    Along the way, prepare to explore every inch of this wondrous world, join forces with a diverse range of characters, and unravel the countless mysteries that Teyvat holds...</p><br>
+
+                <div class="button-container"><center>
+                    <a class = "action-button-tonal-i" href = "https://www.google.com/search?q=genshin impact" target="blank"><b>&nbsp;<i class="fa-brands fa-google"></i>&nbsp;</b></a>
+                    <a class = "action-button-tonal-i" href = "https://genshin-impact.fandom.com/wiki/Genshin_Impact_Wiki" target="blank"><b>&nbsp;<i class="fa-solid fa-fire"></i>&nbsp;</b></a>
+                    <a class = "action-button-tonal-i" href = "https://www.instagram.com/genshinimpact/" target="blank"><b>&nbsp;<i class="fa-brands fa-instagram"></i>&nbsp;</b></a>
+                    <a class = "action-button-tonal-i" href = "https://www.youtube.com/@GenshinImpact" target="blank"><b>&nbsp;<i class="fa-brands fa-youtube"></i>&nbsp;</b></a>
+                    <br><br><br>
+                    <a class = "action-button-tonal" href = "https://enka.network/u/617741450/" target="blank"><b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;View Build Info&nbsp;&nbsp;&nbsp;&nbsp;</b></a>
+                    <a class = "action-button-tonal" href = "https://wiki.hoyolab.com/pc/genshin/home" target="blank"><b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;HoyoWiki&nbsp;&nbsp;&nbsp;&nbsp;</b></a>
+                    <br><br><br>
+                    <a class = "action-button-tonal" href = "https://www.hoyolab.com/home" target="blank"><b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;HoyoLab&nbsp;&nbsp;&nbsp;&nbsp;</b></a>
+                    <a class = "action-button-filled" href = "https://genshin.hoyoverse.com/en/home?utm_source=fab&utm_medium=home" target="blank"><b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;Official Website&nbsp;&nbsp;&nbsp;&nbsp;</b></a><br><br> 
+                    </center>
+                </div>
+            </div>
+
+            <div class="card">
+                
+                <center><h1 class = "title-2">Wuthering Waves</h1></center>
+                <img src="wuwa.png" class="image-on-half-card" alt = "Pic">
+                <p>Wuthering Waves is a story-rich open-world action RPG with a high degree of freedom. 
+                    You wake from your slumber as Rover, 
+                    joined by a vibrant cast of Resonators on a journey to reclaim your lost memories and change the world.</p><br>
+
+                <div class="button-container"><center>
+                    <a class = "action-button-tonal-i" href = "https://www.google.com/search?q=wuthering waves" target="blank"><b>&nbsp;<i class="fa-brands fa-google"></i>&nbsp;</b></a>
+                    <a class = "action-button-tonal-i" href = "https://wutheringwaves.fandom.com/wiki/Wuthering_Waves_Wiki" target="blank"><b>&nbsp;<i class="fa-solid fa-fire"></i>&nbsp;</b></a>
+                    <a class = "action-button-tonal-i" href = "https://www.instagram.com/wutheringwaves/" target="blank"><b>&nbsp;<i class="fa-brands fa-instagram"></i>&nbsp;</b></a>
+                    <a class = "action-button-tonal-i" href = "https://www.youtube.com/@WutheringWaves" target="blank"><b>&nbsp;<i class="fa-brands fa-youtube"></i>&nbsp;</b></a><br><br><br>
+                    
+                    <a class = "action-button-filled" href = "https://wutheringwaves.kurogames.com/en/main" target="blank"><b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;Official Website&nbsp;&nbsp;&nbsp;&nbsp;</b></a><br><br> 
+                    </center>
+                </div>
+            </div>            
+        </div>
+
+        <div class="cards-container">
+            <div class="card">
+                <center><h1 class = "title-2">Watch Anime!</h1></center>
+                <img src="ANIME.png" class="image-on-half-card" alt = "Pic">
+                <p>Watch anime and read manga here!</p><br>
+                <div class="button-container"><center>
+                    <a class = "action-button-tonal-i" onclick="openPopup2()"><b>&nbsp;<i class="fa-solid fa-ellipsis"></i>&nbsp;</b></a><br><br><br>
+                    <a class = "action-button-tonal" href = "https://www.crunchyroll.com/newsextension/" target="blank"><b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;News&nbsp;&nbsp;&nbsp;&nbsp;</b></a>
+                    <a class = "action-button-filled" href = "https://www.crunchyroll.com" target="blank"><b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;Open Crunchyroll&nbsp;&nbsp;&nbsp;&nbsp;</b></a><br><br> 
+                    </center>
+                </div>
+            </div>            
+            
+            <div class="card">
+                <center><h1 class = "title-2">Ping Pong</h1></center>
+                <img src="pingpong.png" class="image-on-half-card" alt = "Pic">
+                <p>This is a simple game of ping pong!</p>
+                
+                <div class="button-container">
+                        <br><a class = "action-button-filled" href = "https://yyounir.github.io/pingpong//pingpong.html" c><b>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;Open Link&nbsp;&nbsp;&nbsp;&nbsp;</b></a> <br><br> 
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="search-bar-fixed-wrapper">
@@ -219,7 +497,7 @@
                 <input
                     type="text"
                     id="searchInput"
-                    placeholder="Ask Gemini anything..."
+                    placeholder="Ask Genes anything..."
                     class="search-input"
                     autocomplete="off"
                 >
@@ -279,14 +557,13 @@
             }
 
             // Show loading spinner
-            // geminiResponseContainer.innerHTML = '<div class="loading-spinner"></div><p style="margin-top: 10px;">Generating response...</p>';
-            geminiResponseContainer.innerHTML = '<div class="loadingio-spinner-dual-ring-nq4q5u6dq7r"><div class="ldio-x2uulkbinbj"><p style="margin-top: 10px;">Generating response...</p>';
+            geminiResponseContainer.innerHTML = '<div class="loading-spinner"></div><p style="margin-top: 10px;">Generating response...</p>';
 
             let chatHistory = [];
             chatHistory.push({ role: "user", parts: [{ text: prompt }] });
 
             const payload = { contents: chatHistory };
-            const apiKey = ""; // Canvas will automatically provide the API key at runtime
+            const apiKey = "AIzaSyCbcWqrvkmlzvTDfbsaGto2I9hBmtIxzNU"; // Canvas will automatically provide the API key at runtime
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
             try {
