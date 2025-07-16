@@ -12,12 +12,12 @@ body, header, nav, main, footer, hi, div, img {
 /* Style rules for body and images */
 body {
 	background-color: #f4f2ff;
-	font-family: "nunito";
+	font-family: "quicksand";
 	animation: fadeIn .5s;
 }
 
 h1 {
-	font-family: "nunito";
+	font-family: "quicksand";
 	color: #14007f;
 }
 
@@ -43,7 +43,7 @@ header{
 	border-top-right-radius: 0px;
 	z-index: 99;
    	top: 0;
-	font-family: nunito;
+	font-family: quicksand;
 }
 
 header a {
@@ -57,7 +57,7 @@ header a {
 	text-decoration: none;
 	font-size: 18pt;	
 	border-radius: 4px;
-	font-family: nunito-extra-light;
+	font-family: quicksand-extra-light;
 }
 
 header img {
@@ -84,7 +84,7 @@ li {
 
 p {
 	color: #14007f;
-	font-family: "nunito";
+	font-family: "quicksand";
 	font-size: 14pt;
 }
 
@@ -184,7 +184,7 @@ p {
 /* . */
 .action-button-filled {
 	
-	font-family: nunito;
+	font-family: quicksand;
 	padding: 12px;
 	background-color: #1f00bf;
 	margin: auto;
@@ -214,7 +214,7 @@ p {
 }
 
 .action-button-unfilled {	
-	font-family: nunito;
+	font-family: quicksand;
 	padding: 12px;
 	margin: auto;
 	width: auto; 
@@ -244,7 +244,7 @@ p {
 }
 
 .action-button-unfilled-card {	
-	font-family: nunito;
+	font-family: quicksand;
 	padding-top: 3px;
 	padding-bottom: 3px;
 	padding-left: 13px;
@@ -276,7 +276,7 @@ p {
 }
 
 .action-drawer-button-unfilled {	
-	font-family: nunito;
+	font-family: quicksand;
 	padding: 12px;
 	text-align: left;
 	border-radius: 100px;
@@ -305,7 +305,7 @@ p {
 }
 
 .action-drawer-button-tonal {	
-	font-family: nunito;
+	font-family: quicksand;
 	padding: 12px;
 	background-color:#e8e5f8;
 	text-align: left;
@@ -345,7 +345,7 @@ p {
 	color: #14007F;
 	transition-duration: 0.4s;
 	cursor: pointer;
-	font-family: nunito;
+	font-family: quicksand;
 	text-decoration: none;
 	font-size: 13pt;
 }
@@ -377,7 +377,7 @@ p {
 	color: #14007F;
 	transition-duration: 0.4s;
 	cursor: pointer;
-	font-family: nunito;
+	font-family: quicksand;
 	text-decoration: none;
 	font-size: 13pt;
 }
@@ -409,7 +409,7 @@ p {
 	color: #14007F;
 	transition-duration: 0.4s;
 	cursor: pointer;
-	font-family: nunito;
+	font-family: quicksand;
 	text-decoration: none;
 	font-size: 13pt;
 }
@@ -441,7 +441,7 @@ p {
 	color: #14007F;
 	transition-duration: 0.4s;
 	cursor: pointer;
-	font-family: nunito;
+	font-family: quicksand;
 	text-decoration: none;
 	font-size: 13pt;
 }
@@ -476,7 +476,7 @@ p {
 	color: #14007F;
 	transition-duration: 0.4s;
 	cursor: pointer;
-	font-family: nunito;
+	font-family: quicksand;
 	text-decoration: none;
 	font-size: 13pt;
 }
@@ -511,7 +511,7 @@ p {
 	color: #14007F;
 	transition-duration: 0.4s;
 	cursor: pointer;
-	font-family: nunito;
+	font-family: quicksand;
 	text-decoration: none;
 	font-size: 13pt;
 }
@@ -540,7 +540,7 @@ p {
 	color: #14007F;
 	transition-duration: 0.4s;
 	cursor: pointer;
-	font-family: nunito;
+	font-family: quicksand;
 	text-decoration: none;
 	outline-style: auto;
 	outline-color: #14007F;
@@ -666,7 +666,7 @@ p {
 }
 
 .header-text {
-	font-family: nunito;
+	font-family: quicksand;
 }
 
 .image-on-card {
@@ -1036,6 +1036,8 @@ p {
 	cursor: default;
 	z-index: 10000000;
 	animation: fadeIn .25s;
+	padding-top: 25px;
+	padding-bottom: 25px;
 }
 
 
@@ -1048,6 +1050,7 @@ p {
     border-radius: 30px;
 	width: auto;
 	height: auto;
+	max-height: 100%;
 	min-width: 500px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     text-align: left;
@@ -1068,19 +1071,6 @@ p {
 .flex-container { 
 	display: flex; 
 	justify-content: flex-end; 
-}
-
-.dropbtn {
-	color: #14007f;
-	font-size: 45rem;
-	padding-top: 5px;
-	padding-right: 5px;
-	padding-bottom: 5px;
-	padding-left: 5px;
-	margin-left: 2px;
-	transition-duration: 0.4s;
-	cursor: pointer;	
-	border-radius: 10px;
 }
 
 .dropdown {
@@ -1106,7 +1096,7 @@ p {
 
 .dropdown-content a {
 	color: #14007f;
-	font-family: "nunito";
+	font-family: "quicksand";
 	padding: 10px;
 	text-decoration: none;
 	display: block;
@@ -1118,8 +1108,6 @@ p {
 	margin-left: 0px;
 	padding-left: 12px;
 }
-
-/* transition-duration: 0.4s; */
 
 .dropdown-content a:hover {
 	background-color: #a999ff;
@@ -1134,6 +1122,79 @@ p {
 
 .dropdown:hover .dropbtn {
 	background-color: #a999ff;
+}
+
+
+.mdropbtn {
+  	padding: 13px;
+	background-color:#e8e5f8;
+	border-color: #14007F;
+	margin: auto;
+	width: auto;
+	text-align: center;
+	border-radius: 100px;
+	float: none;
+	color: #14007F;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	font-family: quicksand;
+	text-decoration: none;
+	font-size: 13pt;
+	border: none;
+	font-weight: bold;
+}
+
+.mdropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.mdropdown-content {
+	display: none;
+	position: absolute;
+	
+	width: 220px;
+    background-color: #D1CEFF;
+	border-radius: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.10);
+    z-index: 1000;
+	padding: 10px;
+	text-align: left;
+	animation: fadeIn .15s;
+}
+
+.mdropdown-content a {
+	color: #14007f;
+	font-family: "quicksand";
+	padding: 10px;
+	text-decoration: none;
+	display: block;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-radius: 30px;
+	font-size: 14pt;	
+	font-weight: 600;
+	margin-left: 0px;
+	padding-left: 12px;
+	transition-duration: 0.4s;
+}
+
+.mdropdown-content a:hover {
+	background-color: #a999ff;
+	border-radius: 25px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	transition-duration: 0.4s;
+}
+
+.mdropdown:hover .mdropdown-content {
+  display: block;
+}
+
+.mdropdown:hover .mdropbtn {
+	background-color: #A999FF;
+	padding-right: 16px;
+	padding-left:16px;
 }
 
 @media (max-width: 1024px) {
@@ -1234,6 +1295,15 @@ p {
 /* Card styling */
 .card {
 	background-color: #ffffff;
+	border-radius: 30px;
+	padding: 1.5rem; /* Equivalent to Tailwind's p-6 */
+	width: 100%; /* Take full width of its parent */
+	max-width: 40rem; /* Equivalent to Tailwind's max-w-sm (24rem = 384px) */
+	box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+.card-none {
+	background-color: none;
 	border-radius: 30px;
 	padding: 1.5rem; /* Equivalent to Tailwind's p-6 */
 	width: 100%; /* Take full width of its parent */
@@ -1402,7 +1472,7 @@ p {
 		color: #14007F;
 		transition-duration: 0.4s;
 		cursor: pointer;
-		font-family: nunito;
+		font-family: quicksand;
 		text-decoration: none;
 		font-size: 13pt;
 		
