@@ -12,7 +12,6 @@ body {
 
 /* Style rules for body and images */
 body {
-	background-color: #f4f2ff;
 	font-family: "quicksand";
 }
 
@@ -184,6 +183,7 @@ p {
     padding-bottom: 15px;
     padding-top: 15px;
     transition-duration: 0.4s;
+    font-weight: 600;
 }
 
 .saction-button-tonal {
@@ -247,11 +247,12 @@ p {
 }
 
 .gsearch-input:focus {
-    border-color: #2900ff; /* Equivalent to focus:border-blue-500 */
+    border-color: #14007F; /* Equivalent to focus:border-blue-500 */
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); /* Equivalent to focus:ring-2 focus:ring-blue-500 */
     padding-bottom: 15px;
     padding-top: 15px;
     transition-duration: 0.4s;
+    font-weight: 600;
 }
 
 .suggestions-container {
@@ -266,9 +267,7 @@ p {
     overflow-y: auto;
     display: none;
     flex-direction: column-reverse; /* Display suggestions from bottom up */
-
-    z-index: 10;           
-
+    z-index: 10;      
     background-color: #D1CEFF;
     border-radius: 30px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.10);
@@ -325,43 +324,239 @@ header img {
 }
 
 .gemini-response-container {
-            padding: 20px;
-            background-color: white; /* Light blue background */
-            border: 1px solid #e2e8f0; /* Blue border */
-            
-            border-radius: 30px;
-            border-bottom-left-radius: 15px;
-            margin-bottom: 5px;
+    padding: 20px;
+    background-color: white; /* Light blue background */
+    border: 1px solid #e2e8f0; /* Blue border */
+    
+    border-radius: 30px;
+    border-bottom-left-radius: 15px;
+    margin-bottom: 5px;
 
-            margin-top: 10px; /* Space from the top content */
-            margin-bottom: 10px;
-            width: 100%;
-            max-width: 600px; /* Max width for readability */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: left;
-            color: #14007f; /* Dark blue text */
-            min-height: 100px; /* Minimum height for the response area */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.1em;
-            line-height: 1.6;
-            overflow-wrap: break-word; /* Ensure long words break */
-            word-wrap: break-word; /* For older browsers */
-            white-space: pre-wrap; /* Preserve whitespace and line breaks */
-            font-weight: 600;
-        }
+    margin-top: 10px; /* Space from the top content */
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 600px; /* Max width for readability */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    color: #14007f; /* Dark blue text */
+    min-height: 100px; /* Minimum height for the response area */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1em;
+    line-height: 1.6;
+    overflow-wrap: break-word; /* Ensure long words break */
+    word-wrap: break-word; /* For older browsers */
+    white-space: pre-wrap; /* Preserve whitespace and line breaks */
+    font-weight: 600;
+}
 
-        .loading-spinner {
-            border: 4px solid #14007f; /* Light grey */
-            border-top: 4px solid white; /* Blue */
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-        }
+.loading-spinner {
+    border: 4px solid #14007f; /* Light grey */
+    border-top: 4px solid white; /* Blue */
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+
+
+
+
+.clock-container {
+    background-color: none;
+    border-radius: 20px; /* More rounded corners */
+    text-align: center;
+    display: flex; /* Use flexbox for centering content inside */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 90%; /* Ensure it's responsive */
+    width: fit-content; /* Adjust width to content */
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+#clock-display {
+    font-size: 4.5rem; /* Larger font size for the clock */
+    font-weight: 700; /* Bold font weight */
+    color: #14007F; /* Darker text color */
+    letter-spacing: 2px; /* Add some letter spacing */
+}
+.date-display {
+    font-size: 1.5rem; /* Font size for the date */
+    color: #14007F; /* Lighter text color for date */
+    font-weight: 600;
+}
+
+.clock-container2 {
+    background-color: none;
+    /* border-radius: 20px; */
+    text-align: center;
+    /* display: flex;  */
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+    
+    /* max-width: 90%; */
+    /* width: fit-content;  */
+    /* margin-bottom: 10px; */
+    /* margin-top: 10px; */
+}
+#clock-display2 {
+    font-size: 300px;
+    /* overflow: none; */
+    font-weight: 700; /* Bold font weight */
+    color: #f4f2ff; /* Darker text color */
+    letter-spacing: 2px; /* Add some letter spacing */
+}
+.date-display2 {
+    font-size: 100px; /* Font size for the date */
+    color: #f4f2ff; /* Lighter text color for date */
+    font-weight: 600;
+}
+/* Responsive adjustments for smaller screens */
+@media (max-width: 640px) {
+    .clock-container {
+        padding: 30px 40px;
+    }
+    #clock-display {
+        font-size: 3rem; /* Smaller font size on mobile */
+    }
+    .date-display {
+        font-size: 1.2rem;
+    }
+    .clock-container2 {
+        padding: 30px 40px;
+    }
+    #clock-display2 {
+        font-size: 3rem; /* Smaller font size on mobile */
+    }
+    .date-display2 {
+        font-size: 1.2rem;
+    }
+}
+
+
+
+
+
+.card-title {
+    font-size: 1.875rem; /* Equivalent to Tailwind's text-3xl */
+    font-weight: 700; /* Equivalent to Tailwind's font-bold */
+    color: #1f2937; /* Equivalent to Tailwind's text-gray-800 */
+    margin-bottom: 1.5rem;
+}
+
+.battery-display-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem; 
+    margin-bottom: 1.5rem; 
+}
+
+.battery-icon {
+    /* width: 0rem; */
+    width: 3rem;
+    /* height: 4rem; */
+    color: #f4f2ff; /* Default color, equivalent to Tailwind's text-gray-400 */
+}
+
+
+.battery-percentage {
+    font-size: 3rem; /* Equivalent to Tailwind's text-5xl */
+    font-weight: 800; /* Equivalent to Tailwind's font-extrabold */
+    color: #f4f2ff; /* Equivalent to Tailwind's text-gray-900 */
+}
+
+.charging-status {
+    font-size: 1.125rem; /* Equivalent to Tailwind's text-lg */
+    color: #4b5563; /* Equivalent to Tailwind's text-gray-600 */
+    margin-bottom: 1rem; /* Equivalent to Tailwind's mb-4 */
+    display: block;
+}
+
+.unsupported-message {
+    color: #ef4444; /* Equivalent to Tailwind's text-red-500 */
+    font-size: 0.875rem; /* Equivalent to Tailwind's text-sm */
+    font-style: italic;
+    display: none; /* Hidden by default */
+}
+
+.info-text {
+    margin-top: 2rem; /* Equivalent to Tailwind's mt-8 */
+    font-size: 0.875rem; /* Equivalent to Tailwind's text-sm */
+    color: #6b7280; /* Equivalent to Tailwind's text-gray-500 */
+}
+
+/* Colors for battery icon based on status */
+.icon-green {
+    color: #22c55e; /* Equivalent to Tailwind's text-green-500 */
+}
+.icon-red {
+    color: #ef4444; /* Equivalent to Tailwind's text-red-500 */
+}
+.icon-yellow {
+    color: #f59e0b; /* Equivalent to Tailwind's text-yellow-500 */
+}
+
+.dark-mode{
+@media (prefers-color-scheme: dark) {
+    .gemini-response-container {
+        padding: 20px;
+        background-color: #212121; /* Light blue background */
+        border: 1px solid #212121;
+        color: #d1ceff;
+    }
+
+    .search-input { /* THE ACTUAL SEARCH BARRRR */
+        border: 1px solid #212121; /* Equivalent to border border-gray-300 */
+        color: #d1ceff; /* Equivalent to text-gray-700 */
+        background-color:#212121;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 1);
+    }
+
+    .gsearch-input { /* THE ACTUAL GOOGLE SEARCH BARRRR */
+        border: 1px solid #080033;
+        color: #d1ceff;
+        background-color: #080033;
+        
+    }
+
+    .gsearch-input:focus {
+        border-color: #14007F;
+    }
+
+    .suggestions-container {
+        border: 1px solid #080033;  
+        background-color: #080033;
+    }
+
+    .suggestion-item {         
+        color: #d1ceff;
+    }
+
+    .suggestion-item:hover {
+        background-color: #100066;
+    }
+
+    .loading-spinner {
+        border: 4px solid #d1ceff; /* Light grey */
+        border-top: 4px solid #212121; /* Blue */
+    }
+
+    #clock-display {
+        color: #d1ceff; /* Darker text color */
+    }
+    .date-display {
+        color: #d1ceff; /* Lighter text color for date */
+    }
+}
+}
