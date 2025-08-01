@@ -222,8 +222,8 @@ p {
 }
 
 .gsearch-input { /* THE ACTUAL GOOGLE SEARCH BARRRR */
-    /* width: 35%; */
-    width: 60%;
+    width: 35%;
+    /* width: 60%; */
     /* padding: 12px 20px; Equivalent to px-5 py-3 */
     padding-left: 20px;
     padding-top: 12px;
@@ -239,6 +239,7 @@ p {
     background-color: #f4f2ff;
     margin-right: 5px;
     margin-bottom: 5px;
+    
 }
 
 .gsearch-input:hover {
@@ -505,6 +506,12 @@ header img {
 }
 .icon-yellow {
     color: #f59e0b; /* Equivalent to Tailwind's text-yellow-500 */
+}
+
+@media (max-width: 768px) {
+    .gsearch-input { /* THE ACTUAL GOOGLE SEARCH BARRRR */
+        width: 60%;
+    }
 }
 
 .dark-mode{
