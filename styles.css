@@ -1208,6 +1208,40 @@ p {
 	/* transition: visibility 0.3s ease-out, opacity 0.3s ease-out, transform 0.1s ease-out;  */
 }
 
+.page-normal-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f4f2ff;
+    justify-content: center;
+    align-items: center;
+	cursor: default;
+	z-index: 1000;
+	animation: fadeIn .25s;
+}
+
+.page-normal {
+	font-weight: 500;
+    background-color: #f4f2ff;
+	/* /* padding-top: 25px; */
+	padding-bottom: 45px;
+    /* padding-right: 30px; */
+	/* padding-left: 40px; */
+    border-radius: 30px;
+	width: 100%;
+	height: 100%;
+	max-height: 100%;
+	min-width: 500px;
+    text-align: left;
+	cursor: default;	
+	animation: zoomIn 0.2s ease-out forwards;
+	overflow-y: auto; 
+	/* transition: visibility 0.3s ease-out, opacity 0.3s ease-out, transform 0.1s ease-out;  */
+}
+
 .close {
     position: absolute;
     top: 10px;
@@ -1593,6 +1627,8 @@ p {
 		animation: fadeIn .5s;
 	}
 
+	
+
 	.action-button-filled {
 		display: flex;
 		justify-content: center;
@@ -1698,6 +1734,10 @@ p {
 		background-color: #03011a;
 	}
 
+	.page-normal, .page-normal-container {
+		background-color: #03011a;
+	}
+
 	header {
 		background-color: #03011a;
 	}
@@ -1715,7 +1755,7 @@ p {
 	}
 
 	.header-left-alt a:hover {
-		background-color: #14007F;
+		background-color: #454170;
 	}
 
 	.header-right a{
@@ -1723,7 +1763,7 @@ p {
 	}
 
 	.header-right a:hover {
-		background-color: #14007F;
+		background-color: #454170;
 	}
 
 	h1 {
@@ -1789,7 +1829,7 @@ p {
 	}
 
 	.action-button-tonal:hover, .action-button-tonal-card:hover, .action-button-tonal-i:hover, .mdropbtn:hover , .action-button-unfilled-i:hover{
-		background-color: #090359;
+		background-color: #454170;
 	}
 
 		
@@ -1809,7 +1849,7 @@ p {
 	}
 
 	.dropdown-content a:hover, .mdropdown-content a:hover {
-		background-color: #100066;
+		background-color: #454170;
 	}
 
 	/* App Card */
@@ -1818,7 +1858,7 @@ p {
 	}
 
 	.app-card:hover {
-		background-color: #100066;
+		background-color: #454170;
 		color: #d1ceff;
 	}
 }

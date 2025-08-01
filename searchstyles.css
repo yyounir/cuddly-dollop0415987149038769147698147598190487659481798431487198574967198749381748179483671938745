@@ -516,6 +516,7 @@ header img {
 
 .dark-mode{
 @media (prefers-color-scheme: dark) {
+    
     .gemini-response-container {
         padding: 20px;
         background-color: #212121; /* Light blue background */
