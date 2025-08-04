@@ -25,6 +25,14 @@ h2 {
 	color: #14007f;
 }
 
+h3 {
+	color: #14007f;
+}
+
+p {
+	color: #14007f;
+}
+
 h4 {
 	text-decoration: none;
 }
@@ -105,11 +113,10 @@ p {
 #card-white {
 	background-color: white;
 	border-radius: 20px;
-	padding-top: 10px;
+	padding-top: 20px;
 	padding-bottom: 20px;
 	padding-right: 20px;
 	padding-left: 20px;
-	margin-top: 20px;
 }
 
 #card-unfilled {
@@ -364,7 +371,7 @@ p {
 }
 
 .action-button-tonaldark:hover {
-	background-color: #090359;
+	background-color: #454170;
 	padding-right: 16px;
 	padding-left: 16px;
 }	
@@ -807,10 +814,15 @@ p {
 	z-index: 100;
 }
 
-.padding-body {
+.padding-body{
 	padding-left: 45px;
 	padding-right: 45px;
 	padding-bottom: 65px;
+}
+
+.padding-body-a{
+	padding-left: 45px;
+	padding-right: 45px;
 }
 
 .title
@@ -832,8 +844,7 @@ p {
 	font-size: 20px;
 }
 
-.menu-text
-{
+.menu-text {
 	font-size: 30px;
 	font-style: bold;
 }
@@ -1108,7 +1119,7 @@ p {
 
 	-webkit-backdrop-filter: blur(4px);
 	backdrop-filter: blur(4px);
-	border-radius: 10px;
+	/* border-radius: 10px; */
 }
 
 
@@ -1442,6 +1453,11 @@ p {
 	.padding-body {
 		padding-left: 0px;
 		padding-right: 0px;
+	}
+
+	.padding-body-a {
+		padding-left: 20px;
+		padding-right: 20px;
 	}
 
 	.action-button-filled {
@@ -1784,6 +1800,14 @@ p {
 		color: #d1ceff;
 	}
 
+	h3 {
+		color: #d1ceff;
+	}
+
+	p {
+		color: #d1ceff;
+	}
+
 	li {
 		font-size: 1.1rem;
 		color: #14007F;
@@ -1804,6 +1828,11 @@ p {
     	/* background-color: #08034d; */
 		background-color: #040126;
   	}
+
+	#card-white {
+		background-color: #040126;
+	}
+
 	#card-white-section-1-incard {
 		background-color: none;
 		color: #d1ceff;
